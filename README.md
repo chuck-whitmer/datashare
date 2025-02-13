@@ -21,12 +21,12 @@ the file `nuclidelist`, which begins with:
 [...]
 ```
 
-A 4-digit id number is provided in text columns 2 through 5. There follows an `'AZS'` identifier, 
+A 4-digit id number is provided in text columns 2 through 5. There follows an `AZS` identifier, 
 which provides 3 digits of the mass number A followed by 3 digits for the atomic number Z. 
 A last digit S indicates any metastate level. 
 Three more fields help with human interpretation of the nuclide.
 
-These two entries show familiar examples:
+These two entries show familiar nuclides:
 ```
 #3418: 2350920  U 235
 #3419: 2350921  U 235*
@@ -34,7 +34,7 @@ These two entries show familiar examples:
 The rows of each matrix correspond in order to the production of the listed nuclides. Thus the first row of the 
 matrix details H1 production, etc.
 
-## The decay matrix for section V.A. _The Decay of Fission Products with mass Number 78_
+## The decay matrix for section V.A. - _The Decay of Fission Products with mass Number 78_
 There is no neutron flux in this problem, so we have a pure decay matrix, given as `decaymatrix.mtx`.
 The matrix is in a MatrixMarket format; for details see: [http://math.nist.gov/MatrixMarket/formats.html#MMformat]
 
@@ -61,8 +61,25 @@ matches the entry here.
 
 Likewise, nuclide #3 is tritium, with a half-life of 3.8879E+08 sec, so the entry at 3,3 is what we expect.
 
+## The burn matrix for section V.B. - _Fresh Fuel Burn vs 1000 Time Steps_
+For this problem there is a fast neutron flux, illustrated below, so there will be transmutations and fissions, making a more complicated matrix.
 
+The matrix is derived from ENDF/B-VII.1 decay and fission files, as well as TENDL-2015 neutron production cross section files.
 
-
+The provided file `burnmatrix.mtx` begins:
+```
+%%MatrixMarket matrix coordinate real general
+ 3793  3793 563859
+    1    1 -6.81092728849532e-13
+    1    2  4.35647610785570e-12
+    1    4  1.21349941705521e-08
+    1    7  2.25876488597760e+21
+    1    9  4.14393593788978e-12
+    1   10  2.79872884969594e+20
+    1   12  1.19807400442473e-16
+    1   13  5.18010808140429e-08
+[...]
+```
+The second line of the file shows there will be 563,859 entries. This is many more than the decay matrix has, but is still sparse.
 	
 ![neutron spectrum](BurnSpectrum.png "a title")	
