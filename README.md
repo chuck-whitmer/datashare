@@ -5,7 +5,7 @@ Typically the construction of a transmutation matrix M will be complex and requi
 By providing the exact matrices used, we can avoid ambiguity.
 
 ## The list of nuclides
-There are 3793 nuclides in the problem (regardless of whether they are used), and they are listed in 
+There are 3793 nuclides in the problem (regardless of whether they appear in a non-zero amount), and they are listed in 
 the file `nuclidelist`, which begins with:
 ```
 #   1:   10010  H   1
@@ -32,12 +32,15 @@ These two entries show familiar examples:
 #3419: 2350921  U 235*
 ```
 The rows of each matrix correspond in order to the production of the listed nuclides. Thus the first row of the 
-matrix details H1 productions, etc.
+matrix details H1 production, etc.
 
-## The decay matrix for 
+## The decay matrix for section V.A. _The Decay of Fission Products with mass Number 78_
+There is no neutron flux in this problem, so we have a pure decay matrix, given as `decaymatrix.mtx`.
+The matrix is in a MatrixMarket format; for details see: [http://math.nist.gov/MatrixMarket/formats.html#MMformat]
 
-
+The matrix file begins:
 ```
+%%MatrixMarket matrix coordinate real general
  3793  3793 134933
     1    7  2.25876488597760e+21
     1   10  2.79872884969594e+20
@@ -48,8 +51,18 @@ matrix details H1 productions, etc.
     1   54  6.34750165347935e+00
     1   65  1.73286795139986e+07
 [...]
-    3    3  xxxxxxxxxxxxxxxxx	
+    3    3 -1.78283181295801e-09
 ```
+The matrix is sparse, and so only the row, column, and value of each non-zero entry is listed. All entries are in units of 1/sec. 
+
+The first entry is row 1, column 7, which from the nuclidelist we recognize as protons (H1) produced from the decay of nuclide #7, Li5.
+From the ENDF/B-VII.1 decay files we know the half-life of Li5 is 3.0687E-22 sec, so we expect a decay rate of ln(2)/3.0687E-22, which 
+matches the entry here.
+
+Likewise, nuclide #3 is tritium, with a half-life of 3.8879E+08 sec, so the entry at 3,3 is what we expect.
+
+
+
 
 	
 ![neutron spectrum](BurnSpectrum.png "a title")	
