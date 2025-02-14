@@ -5,7 +5,7 @@ Typically the construction of a transmutation matrix M will be complex and requi
 By providing the exact matrices used, we can avoid ambiguity.
 
 ## The list of nuclides
-There are 3793 nuclides in the problem (regardless of whether they appear in a non-zero amount), and they are listed in 
+There are 3793 nuclides in our 'decay chain' (regardless of whether they appear in the problem in a non-zero amount), and they are listed in
 the file `nuclidelist`, which begins with:
 ```
 #   1:   10010  H   1
@@ -26,7 +26,7 @@ which provides 3 digits of the mass number A followed by 3 digits for the atomic
 A last digit S indicates any metastate level. 
 Three more fields help with human interpretation of the nuclide.
 
-These two entries show familiar nuclides:
+These two entries show familiar nuclide examples:
 ```
 #3418: 2350920  U 235
 #3419: 2350921  U 235*
@@ -59,7 +59,7 @@ The first entry is row 1, column 7, which from the nuclidelist we recognize as p
 From the ENDF/B-VII.1 decay files we know the half-life of Li5 is 3.0687E-22 sec, so we expect a decay rate of ln(2)/3.0687E-22, which 
 matches the entry here.
 
-Likewise, nuclide #3 is tritium, with a half-life of 3.8879E+08 sec, so the entry at 3,3 is what we expect.
+Likewise, nuclide #3 is tritium, with a half-life of 3.8879E+08 sec, so we expect the entry at 3,3 to be its decay constant of -ln(2)/3.8879E+08.
 
 ## The burn matrix for section V.B. - _Fresh Fuel Burn vs 1000 Time Steps_
 For this problem there is a fast neutron flux, illustrated below, so there will be transmutations and fissions, making a more complicated matrix.
