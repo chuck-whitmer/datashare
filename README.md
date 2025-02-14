@@ -83,3 +83,7 @@ The provided file `burnmatrix.mtx` begins:
 The second line of the file shows there will be 563,859 entries. This is many more than the decay matrix has, but is still sparse.
 	
 ![neutron spectrum](BurnSpectrum.png "a title")	
+
+And a visual view of the matrix.
+
+![Non-zero entries in the matrix](burnmatrix.pgn "a title")	
