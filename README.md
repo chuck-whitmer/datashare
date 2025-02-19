@@ -86,4 +86,4 @@ The second line of the file shows there will be 563,859 entries. This is many mo
 
 And a visual view of the matrix.
 
-![Non-zero entries in the matrix](burnmatrix.pgn "a title")	
+![Non zero entries in the matrix](burnmatrix.pgn "a title")	
