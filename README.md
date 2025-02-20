@@ -81,9 +81,12 @@ The provided file `burnmatrix.mtx` begins:
 [...]
 ```
 The second line of the file shows there will be 563,859 entries. This is many more than the decay matrix has, but is still sparse.
-	
-![neutron spectrum](BurnSpectrum.png "a title")	
+This is all the user needs to know about the transmutation matrix, but some readers may be interested that the neutron flux is in a 
+fast spectrum:
 
-And a visual view of the matrix.
+![neutron spectrum](BurnSpectrum.png)	
 
-![Non zero entries in the matrix](burnmatrix.pgn "a title")	
+And a view of the whole matrix showing the non-zero entries shows that it is nearly upper-triangular,
+and the production of fission products can be seen.
+
+![Non zero entries in the matrix](burnmatrix1.png)
