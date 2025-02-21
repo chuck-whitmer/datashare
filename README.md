@@ -4,6 +4,13 @@ article "Computing the Time-Averaged Nuclide Inventory Using the Chebyshev Ratio
 Typically the construction of a transmutation matrix M will be complex and require many assumptions. 
 By providing the exact matrices used, we can avoid ambiguity.
 
+The important files here are:
+```
+nuclidelist
+decaymatrix.mtx
+burnmatrix.mtx
+```
+
 ## The list of nuclides
 There are 3793 nuclides in our 'decay chain' (regardless of whether they appear in the problem in a non-zero amount), and they are listed in
 the file `nuclidelist`, which begins with:
